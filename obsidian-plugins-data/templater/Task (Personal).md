@@ -27,7 +27,7 @@ NEXT_ID = int_next_id.toString();
 INDENT_ID = "TK-" + PROJECT_ID + NEXT_ID;
 TASK_DIR = "/twm/tasks/" + PROJECT_ID + "-" + PROJECT_NAME + "/";
 
-let desc = "New template task " + INDENT_ID;
+let desc = "New personal task " + INDENT_ID;
 let due = tp.date.now("YYYY-MM-DD");
 let prio = "TP3_NORMAL";
 

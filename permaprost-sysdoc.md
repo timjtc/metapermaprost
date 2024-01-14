@@ -2,6 +2,7 @@
 id: NO-D20230820064734723-1.0
 aliases:
   - Permaprost System Documentation
+  - PermaprostSysdoc
 ---
 **Personal Management and Productivity System (Permaprost) - System Documentation**
 
@@ -19,63 +20,109 @@ ISO 8601
 
 # Methodology
 
-This document, note, or article, whichever way it is perceived, is recursive. The concepts and methods mentioned here can be applied to this entity.
-
-+++
-
+This document, note, or article, whichever way it is perceived, is recursive. The concepts and methods mentioned here can be applied to this entity. To aid in conveniently setting rules and conventions for this system itself, a metapermaprost must exist to contain this document itself, its addendums, and other metadata that sets a stable fundamentals for Permaprost.
 # Knowledge Management and Thought Collection (KMATH)
 
 KMATH defines how knowledge, thoughts, ideas, and data are captured or collected, how are they compiled to a specific structure, and where are they stored.
 Notes are assigned a unique ID as per INDENT with the root classification `NO` followed by variables that describe the medium of persistence and other classification mentioned below.
 ## Units of Knowledge
 
-- Information - general facts learned about something or from someone
-- Thought - 
-- Concept/theory - 
-- Data - technical stuff, math, analytical
-- Principle
-- Idea
+- ~~Information - general facts learned about something or from someone~~
+- ~~Thought -~~ 
+- ~~Concept/theory -~~ 
+- ~~Data - technical stuff, math, analytical~~
+- ~~Principle~~
+- ~~Idea~~
 ## Zettelkasten Note-Taking
 
 Notes that follow the Zettelkasten flow.
 ### Fleeting Notes
 
-Raw information or thoughts gathered or generated must be recorded in Fleeting Notes. Each record here can be written as raw as possible while permitting the use of jargons, abbreviations, contractions, slang or any other form of informal writing to scribe thoughts as quick and as raw as possible.
-Some common scenarios of usage:
-- When sudden realization, an epiphany or random thoughts strike and must be captured as raw and soon as possible to avoid loss of information.
-- When you see or hear a valuable quote that encompasses wisdom, and 
-A Fleeting Note might or might not point to references and has no specific structure.
-### Fragmented Notes
+Raw ideas (information, thoughts, data, etc.) gathered or generated must be recorded in Fleeting Notes. Each record here can be written as raw as possible while permitting the use of jargons, abbreviations, contractions, slang or any other form of informal writing to scribe thoughts as quick and as fresh as possible.
 
-Writing any atomic thought about something, information or definition falls under Fragmented Notes. Anything contained within must not deviate from the topic or reference anything, even something related to it. A Fragmented Note can point to other references that conveys similar information or to a source where the atomic information is deducted or derived from.
+Some common scenarios of usage:
+- When sudden realization, an epiphany or random thoughts strike and must be captured as raw and soon as possible to avoid loss of idea.
+- When you see or hear a valuable quote that encompasses wisdom and you feel like you can use or apply that somewhere but not sure where or when. 
+
+A Fleeting Note might or might not point to references and has no specific structure.
 ### Literature Notes
 
 Writing deducted information, thoughts or ideas whenever consuming any literature, online content, multimedia or any medium of information transfer must be written in a Literature Note.
-### Rationalized Notes
+The writing style in a Literature Note must emphasize the key ideas presented in the content. It still involves writing the raw ideas in one's words, but leaves out the informality and highly subjective nature of Fleeting Notes.
 
-Writing summarized documents once sufficient information has been realized from Literature Notes, Fleeting Notes and Daily Journals will produce a Rationalized Note.
+Only the sources or content where the idea was inspired or implied from must be listed at the end of the note and follow the suggested format for citing references. As such, the DRF dictates that the only allowed references are those in the context plane.
+### Fragmented Notes
+
+Writing any atomic thought about something, information or definition falls under Fragmented Notes. Anything contained within must not deviate from the topic or reference anything, even something related to it. A Fragmented Note must make its statement or thesis clear as brief as possible. 
+
+It must either contain references to direct sources where the current idea was derived or implied from, or by the Literature Note that explores such direct sources. To further prove its level of absoluteness, it must refer to auxiliary ideas that support or state a similar thesis that is also already atomic or fragmented.
 ### Flow
 
-An NO-E can evolve into an NO-F when trying to normalize, sanitize or even break down the raw information or thought from the NO-E. An NO-F can be evolved into a separate NO-L when a deeper study into the thought or information is warranted and sufficient sources are found or encountered to back this study. An NO-L can evolve into an NO-R when sufficient testing or real-world data provides insights or proof how a new information can be applied and turned into wisdom.
-An NO-L can also be broken down into various NO-Fs when several information is presented in that NO-L that can be related or unrelated to each other and can be further divided into their atomic form.
-## Auxiliary Note Types
+~~An NO-E can evolve into an NO-F when trying to normalize, sanitize or even break down the raw information or thought from the NO-E. An NO-F can be evolved into a separate NO-L when a deeper study into the thought or information is warranted and sufficient sources are found or encountered to back this study. An NO-L can evolve into an NO-R when sufficient testing or real-world data provides insights or proof how a new information can be applied and turned into wisdom.~~
+~~An NO-L can also be broken down into various NO-Fs when several information is presented in that NO-L that can be related or unrelated to each other and can be further divided into their atomic form.~~
+## Note Relations
+
+### Reference
+
+A reference is a general form of mentioning, relating or linking ideas. It can point to an idea, note, literature, media or any form of content.
+### Directional Relation Framework (DRF)
+
+This is an implementation of the Zettelkasten Compass by Fei, presented in one of Vicky Zhao's YouTube video ([[NO-L20240114005847784.zettelkasten-obsidian-workflow-by-vicky-zhao#^d3256d|2023 Zettelkasten Obsidian Workflow by Vicky Zhao]]). There are four arbitrary directions, axes or planes a relation to other ideas or notes can go:
+- **△ / Up / Context**: Where the idea comes from? What is/are the source content of the idea? What inquiries does it satisfy?
+- **⦻ / Rear / Auxiliary**: What other ideas or references support this idea? What are ideas with similar statement or thesis?
+- **⊙ / Right / Contrary**: What ideas are opposite to this?
+- **▼ / Down / Next**: Where this idea leads to? What conclusion or action can this imply?
+#### Source
+
+A Source is a form of reference that points to the literature, media, or any form of content where the idea was implied. Using the DRF, a Source Reference can only be in the context plane and must point to a content or a note that is not atomic or fragmented.
+#### Auxiliary
+
+An Auxiliary Reference points to an idea that supports the absoluteness or states a similar thesis to the current idea. This reference must point to an idea or note that is already fragmented. An Auxiliary Reference, in its name itself, resides in the auxiliary plane.
+#### Link
+
+A link is a general abstraction of a reference that can point in any plane. It can point to a fragmented idea that is contrary or stands in opposition to the current idea. It can also point to another context or question, or to a conclusion or action that would formulate or resolve upon assuming the absoluteness of the idea.
+## Convenience of Searching and Retrieving Notes
+
+### Tags
+
+`#context`
+
+`#auxiliary`
+`#auxiliary/anecdote`
+`#auxiliary/experience`
+`#auxiliary/quote`
+`#auxiliary/study`
+`#auxiliary/data`
+
+`#hollow`
+`#verify`
+## Abstract Note Types
 
 Notes that may or may not follow the Zettelkasten flow.
 ### Daily Journal
 
-A Daily Journal is a manifestation of a Fleeting Note. Information or thoughts generated or gathered throughout a day must be placed in a Daily Journal, and be recorded in a raw form. It is recommended to use a bullet format for each thought or event.
+A Daily Journal is a manifestation of a Fleeting Note. Ideas generated or gathered throughout a day must be placed in a Daily Journal and be recorded in a raw form. It is recommended to use a bullet format for each block of idea or event. There is also no restraint to what a Daily Journal might comprise, each block can be a whole Fleeting or Literature Note that can be later moved to a separate note markdown file.
 ### Quick Notes
 
 quick notes
 ### Illustrative Notes
 
-These are notes
+Drawings and stuff...
 ### Technical Notes
 
-Procedures and stuff
+Procedures and stuff...
 ### Template Notes
 
-Defines how other notes are structured
+Defines how other notes are structured.
+### Reference Notes
+
+When a source or reference needs to be stored in a separate note for a more detailed citation, especially when there is a need for an APA or MLA listing, it must be stored in a separate Reference Note instead of being an entry in the References or Sources section. Reference Notes will have the same naming convention as a citation.
+
+This is especially true when referencing a content that would take a long time to consume, only a portion of such content is consumed or is to be consumed, or only that small portion is useful for implying the idea in a note. Examples of these are publications, books, novels or academic journals that might be too lengthy to consume and also has different editions, or also a TV series, movie or film where only a short timestamp of it contains the implication of the idea. This is in contrast to, say for example, a YouTube video or short that can be contained in a single link and only have a one version of itself.
+## Note Evolution and Displacement
+
+When a block inside a note is moved to a different or separate note, a link must point to the new note in place of the whole block of content that was previously there.
+When a note must evolve into a different type, a new INDENT ID must be generated to replace the previous ID, or just create a new note altogether and move the content into the new one. Whichever is performed, the evolved note must mention the...
 ## Note Persistence
 
 The following defines where notes are stored or written.
@@ -83,59 +130,102 @@ The following defines where notes are stored or written.
 
 Notes written on a piece of paper are considered as Paper Notes. Generally, it is more recommended writing notes in a notebook to avoid the risk of losing information.
 Paper Notes will have...
+Digital notes with paper counterparts or copies must state a callout in the end of the note that any revision in the note warrants a rewrite of the paper copy.
 ### Digital Formats
 
 Notes created and stored in any computer are considered notes in Digital Format. All digital notes will have an INDENT root classification of `NO`. Plain-text formats are recommended due to interoperability and simplicity.
 
-**Implementation**
-
 As of writing (2023-08-21), Obsidian is used to store notes in Markdown (.md) format.
-
-Only the following note types are possible when writing a note in digital format, followed by their INDENT definitions:
-
-*Daily Journal*
-
-```
-INDENT DEFINITION
-{
-	"syntax": "??-J#",
-	"root": "NO",
-	"index": "iso8601date_YYYYMMDD"
-}
-```
+#### Indexing with INDENT
 
 *Fleeting Notes*
-
 ```
 INDENT DEFINITION
 {
 	"syntax": "??-F#",
 	"root": "NO",
-	"index": "iso8601datetime_YYYYMMDDHHmmssS"
+	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
+}
+```
+
+*Daily Journal*
+```
+INDENT DEFINITION
+{
+	"syntax": "??-F#J",
+	"root": "NO",
+	"index": "iso8601date_YYYYMMDD"
 }
 ```
 
 *Literature Notes*
-
 ```
 INDENT DEFINITION
 {
 	"syntax": "??-L#",
 	"root": "NO",
-	"index": "iso8601datetime_YYYYMMDDHHmmssS"
+	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
 }
 ```
 
-*Rationalized Notes*
-
+*Fragmented Notes*
 ```
 INDENT DEFINITION
 {
-	"syntax": "??-D#",
+	"syntax": "??-G#",
 	"root": "NO",
-	"index": "iso8601datetime_YYYYMMDDHHmmssS"
+	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
 }
 ```
+
+*Quick Notes*
+```
+INDENT DEFINITION
+{
+	"syntax": "??-Q#",
+	"root": "NO",
+	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
+}
+```
+
+*Illustrative Notes*
+```
+INDENT DEFINITION
+{
+	"syntax": "??-I#",
+	"root": "NO",
+	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
+}
+```
+
+*Technical Notes*
+```
+INDENT DEFINITION
+{
+	"syntax": "??-T#",
+	"root": "NO",
+	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
+}
+```
+
+*Reference Notes*
+```
+INDENT DEFINITION
+{
+	"syntax": "??-R#-${bib_id}",
+	"root": "NO",
+	"index": "iso8601datetime_YYYYMMDD",
+	"vars": 
+	{
+		"bib_id": 
+		{
+			"desc": "A unique identifier of an existing standard like ISBN, DOI, HDL, etc",
+			"format": "alphanumeric"
+		}
+	}
+}
+```
+
 ## Data and Information Security
 
 
@@ -410,4 +500,4 @@ INDENT DEFINITION
 
 # Addendums
 
-[[addendum-2-software-specific-configurations|Permaprost Addendum#2 - Software-specific configurations]]
+[[addendum-1-digital-tools-and-software|Permaprost Addendum#1 - Digital Tools and Software]]

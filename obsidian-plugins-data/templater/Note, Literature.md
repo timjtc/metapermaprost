@@ -11,3 +11,8 @@ try {
 	await tp.file.move(NOTE_DIR + INDENT_ID + ".new-" + NOTE_TYPE + "-note-" + tp.file.creation_date("YYYYMMDDTHHmmssSSS"));
 }
 -%>
+# Ideas
+
+
+# Sources
+
