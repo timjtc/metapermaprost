@@ -74,9 +74,11 @@ This is an implementation of the Zettelkasten Compass by Fei, presented in one o
 - **Down / Next**: Where this idea leads to? What conclusion or action can this imply?
 
 The DRF is only strongly recommended to be used in Fragmented Notes, as they require clear interconnection of ideas. Literature Notes or Fleeting Notes may or may not use this framework, but must still adhere to its nature of referencing its sources in any method, if required.
+
+When listing a source in the context plane, it must be marked by preceding with a greater than symbol `>` to avoid confusion with other references. This makes the source entry appear inside quotes in markdown.
 #### Source
 
-A Source is a form of reference that points to the literature, media, or any form of content where the idea was implied. Using the DRF, a Source Reference can only be in the context plane and must point to a content or a note that is not atomic or fragmented. Sources must be marked by preceding with a greater than symbol `>`, equally appearing inside quotes in markdown.
+A Source is a form of reference that points to the literature, media, or any form of content where the idea was implied. Using the DRF, a Source Reference can only be in the context plane and must point to a content or a note that is not atomic or fragmented.
 #### Auxiliary
 
 An Auxiliary Reference points to an idea that supports the absoluteness or states a similar thesis to the current idea. This reference must point to an idea or note that is already fragmented. An Auxiliary Reference, in its name itself, resides in the auxiliary plane.
@@ -132,6 +134,8 @@ The following defines where notes are stored or written.
 
 Notes written on a piece of paper are considered as Paper Notes. Generally, it is more recommended writing notes in digital format for the convenience of synchronization across devices, faster idea collection, and faster lookup. However, there are special cases where a paper notebook is necessary, especially in the risk of loss, corruption or destruction of digital data, or when an instruction specifically needs paper notebooks.
 
+A **leaf** is defined as one piece of paper bound to the notebook. A **page** is one side in the leaf of the notebook.
+
 Digital notes with paper counterparts or copies must state a callout in the end of the note that any revision in the note warrants a rewrite of the paper copy.
 #### Initialization
 
@@ -139,125 +143,151 @@ A paper notebook must have already been procured and ready for writing. A descri
 ```
 ---
 INDENT: DEF
-syntax: "??-${crc32_nb_desc}}"
+syntax: "??-${nb_desc_crc32}}"
 root: "NB"
 vars:
-  crc32_nb_desc:
+  nb_desc_crc32:
     desc: "Output of the CRC-32 hash of the description of use for the notebook"
     format: "string"
 ...
 ```
-
-The first page of the notebook must contain the following text:
+The first page (in the first leaf) of the notebook must contain the following text and variables:
 
 > This paper notebook has been initialized under Personal Management and Productivity System - Knowledge Management and Thought Collection (Permaprost-KMATH). All notes contained or will be written herein must adhere to the methodologies and workflows stated under Permaprost-KMATH.
-> Refer to `${latest_sysdoc_indent}` for more details.
+> Refer to `${sysdoc_indent}` for more details.
 > 
-> Author: `${name}`
-> Paper Notebook ID: `${indent}`
+> Author: `${author_name}`
+> Paper Notebook ID: `${nb_indent}`
 > Description: `${desc}`
 
+The variables are defined as follows:
+`${sysdoc_indent}` is the INDENT ID of the Permaprost system documentation without version number.
+`${author_name}` is the name of the author or owner of the notebook.
+`${nb_indent}` is the INDENT ID of the notebook.
+`${desc}` is the same notebook description passed through a CRC-32 algorithm used to create the notebook ID.
+
+The second page (in the first leaf) of the notebook must be left intentionally blank.
 #### Indexing
 
-INDENT:
-`NP-${nb_index}${pagenumber}#`
+In order to keep track of all note IDs and easily locate each note, an indexing table must be present after the first leaf of the notebook. The indexing table can be printed to a separate piece of paper and attached to the second leaf of the notebook for convenience. This piece of paper must be cut down to the exact height and width of a leaf of the notebook.
+
+The following are the columns of the indexing table:
+- `note_id`
+- `desc`
+- `page_num`
+
+To determine the number of rows, a "note-per-page limit" (NPPL) must first be set. This dictates the maximum number of notes that can be written in one page. Then, the pages must be assigned a number, starting from the note initialization string being numbered as `1`. When three is subtracted from the last page number, this gives the maximum number of pages that can be written on including the first two index pages referred to as "variable writeable page count" (VWPC). The VWPC must be multiplied to the NPPL to determine the number of rows to be printed. If two pages for the index table is not sufficient, two more pages must be subtracted from the VWPC, be set as the new value of the VWPC and recompute the number of rows for the table. This can be reiterated as much as possible to agree on the number of pages to be assigned for the indexing table and for the VWPC.
+
+When writing a note in a page, the ID must be created with the following INDENT definition and be written in that page:
+```
+---
+INDENT: DEF
+syntax: "??-${nb_desc_crc32}-${pagenumber}#"
+root: "NP"
+vars:
+  crc32_nb_desc:
+    desc: "Output of the CRC-32 hash of the description of use for the notebook"
+    format: "%s"
+  pagenumber:
+    desc: "The page number where the note is written"
+    format: "%i"
+index: "ai"
+...
+```
+Then, this ID must be recorded in the indexing table before writing any content on the note.
 ### Digital Formats
 
 Notes created and stored in any computer are considered notes in Digital Format. All digital notes will have an INDENT root classification of `NO`. Plain-text formats are recommended due to interoperability and simplicity.
 
 As of writing (2023-08-21), Obsidian is used to store notes in Markdown (.md) format.
-#### Indexing with INDENT
+#### Indexing
 
 *Fleeting Notes*
 ```
-INDENT DEFINITION
-{
-	"syntax": "??-F#",
-	"root": "NO",
-	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
-}
-```
-
-*Daily Journal*
-```
-INDENT DEFINITION
-{
-	"syntax": "??-F#J",
-	"root": "NO",
-	"index": "iso8601date_YYYYMMDD"
-}
+---
+INDENT: DEF
+syntax: "??-F#"
+root: "NO"
+index: "iso8601datetime_YYYYMMDDHHmmssSSS"
+...
 ```
 
 *Literature Notes*
 ```
-INDENT DEFINITION
-{
-	"syntax": "??-L#",
-	"root": "NO",
-	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
-}
+---
+INDENT: DEF
+syntax: "??-L#"
+root: "NO"
+index: "iso8601datetime_YYYYMMDDHHmmssSSS"
+...
 ```
 
 *Fragmented Notes*
 ```
-INDENT DEFINITION
-{
-	"syntax": "??-G#",
-	"root": "NO",
-	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
-}
+---
+INDENT: DEF
+syntax: "??-G#"
+root: "NO"
+index: "iso8601datetime_YYYYMMDDHHmmssSSS"
+...
+```
+
+*Daily Journal*
+```
+---
+INDENT: DEF
+syntax: "??-F#J"
+root: "NO"
+index: "iso8601datetime_YYYYMMDD"
+...
 ```
 
 *Quick Notes*
 ```
-INDENT DEFINITION
-{
-	"syntax": "??-Q#",
-	"root": "NO",
-	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
-}
+---
+INDENT: DEF
+syntax: "??-Q#"
+root: "NO"
+index: "iso8601datetime_YYYYMMDDHHmmssSSS"
+...
 ```
 
 *Illustrative Notes*
 ```
-INDENT DEFINITION
-{
-	"syntax": "??-I#",
-	"root": "NO",
-	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
-}
+---
+INDENT: DEF
+syntax: "??-I#"
+root: "NO"
+index: "iso8601datetime_YYYYMMDDHHmmssSSS"
+...
 ```
 
 *Technical Notes*
 ```
-INDENT DEFINITION
-{
-	"syntax": "??-T#",
-	"root": "NO",
-	"index": "iso8601datetime_YYYYMMDDHHmmssSSS"
-}
+---
+INDENT: DEF
+syntax: "??-T#"
+root: "NO"
+index: "iso8601datetime_YYYYMMDDHHmmssSSS"
+...
 ```
 
 *Reference Notes*
 ```
-INDENT DEFINITION
-{
-	"syntax": "??-R#-${bib_id}",
-	"root": "NO",
-	"index": "iso8601datetime_YYYYMMDD",
-	"vars": 
-	{
-		"bib_id": 
-		{
-			"desc": "A unique identifier of an existing standard like ISBN, DOI, HDL, etc",
-			"format": "alphanumeric"
-		}
-	}
-}
+---
+INDENT: DEF
+syntax: "??-R#-${bib_id}"
+root: "NO"
+index: "iso8601datetime_YYYYMMDD"
+vars:
+  bib_id:
+    desc: "A unique identifier of an existing standard like ISBN, DOI, HDL, etc"
+    format: "%s"
+...
 ```
 ## Data and Information Security
 
-
+...
 # Structured Data
 
 Data that is stored with a specific structure or format falls under this section.
