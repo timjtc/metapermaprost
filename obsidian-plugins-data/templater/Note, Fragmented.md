@@ -16,14 +16,14 @@ try {
 
 # References
 
-## △ / Up / Context
+## Up / Context
 
 
-## ⦻ / Rear / Auxiliary
+## Rear / Auxiliary
 
 
-## ⊙ / Ahead / Contrary
+## Ahead / Contrary
 
 
-## ▼ / Down / Next
+## Down / Next
 

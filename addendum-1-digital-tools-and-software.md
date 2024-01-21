@@ -148,6 +148,14 @@ If the reference is a TV series:
 If the reference is a video game:
 	...
 
+If the reference is a seminar, workshop, lecture, conference or anything similar:
+	the last name of the keynote speaker,
+	followed by the initials of its first name in uppercase (resembling a camel case),
+	followed by a dash,
+	followed by the year, month, date, hour and minute when the event started (in `ISO8601 YYYYMMDDHHmm`),
+	followed by a dash,
+	followed by the abbreviation of the title of conference (refer to [[#^764429]])
+
 **Producing an abbreviation of work title for citations** ^764429
 
 1. Strip all conjunctions from the title.

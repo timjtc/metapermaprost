@@ -68,13 +68,15 @@ A reference is a general form of mentioning, relating or linking ideas. It can p
 ### Directional Relation Framework (DRF)
 
 This is an implementation of the Zettelkasten Compass by Fei, presented in one of Vicky Zhao's YouTube video ([[NO-L20240114005847784.zettelkasten-obsidian-workflow-by-vicky-zhao#^d3256d|2023 Zettelkasten Obsidian Workflow by Vicky Zhao]]). There are four arbitrary directions, axes or planes a relation to other ideas or notes can go:
-- **△ / Up / Context**: Where the idea comes from? What is/are the source content of the idea? What inquiries does it satisfy?
-- **⦻ / Rear / Auxiliary**: What other ideas or references support this idea? What are ideas with similar statement or thesis?
-- **⊙ / Right / Contrary**: What ideas are opposite to this?
-- **▼ / Down / Next**: Where this idea leads to? What conclusion or action can this imply?
+- **Up / Context**: Where the idea comes from? What is/are the source content of the idea? What inquiries does it satisfy?
+- **Rear / Auxiliary**: What other ideas or references support this idea? What are ideas with similar statement or thesis?
+- **Right / Contrary**: What ideas are opposite to this?
+- **Down / Next**: Where this idea leads to? What conclusion or action can this imply?
+
+The DRF is only strongly recommended to be used in Fragmented Notes, as they require clear interconnection of ideas. Literature Notes or Fleeting Notes may or may not use this framework, but must still adhere to its nature of referencing its sources in any method, if required.
 #### Source
 
-A Source is a form of reference that points to the literature, media, or any form of content where the idea was implied. Using the DRF, a Source Reference can only be in the context plane and must point to a content or a note that is not atomic or fragmented.
+A Source is a form of reference that points to the literature, media, or any form of content where the idea was implied. Using the DRF, a Source Reference can only be in the context plane and must point to a content or a note that is not atomic or fragmented. Sources must be marked by preceding with a greater than symbol `>`, equally appearing inside quotes in markdown.
 #### Auxiliary
 
 An Auxiliary Reference points to an idea that supports the absoluteness or states a similar thesis to the current idea. This reference must point to an idea or note that is already fragmented. An Auxiliary Reference, in its name itself, resides in the auxiliary plane.
@@ -116,7 +118,7 @@ Procedures and stuff...
 Defines how other notes are structured.
 ### Reference Notes
 
-When a source or reference needs to be stored in a separate note for a more detailed citation, especially when there is a need for an APA or MLA listing, it must be stored in a separate Reference Note instead of being an entry in the References or Sources section. Reference Notes will have the same naming convention as a citation.
+When a source or reference needs to be stored in a separate note for a more detailed citation, especially when there is a need for an APA or MLA listing, it must be stored in a separate Reference Note instead of being an entry in the References or Sources section. Reference Notes will have the same naming convention as a citation entry in a block.
 
 This is especially true when referencing a content that would take a long time to consume, only a portion of such content is consumed or is to be consumed, or only that small portion is useful for implying the idea in a note. Examples of these are publications, books, novels or academic journals that might be too lengthy to consume and also has different editions, or also a TV series, movie or film where only a short timestamp of it contains the implication of the idea. This is in contrast to, say for example, a YouTube video or short that can be contained in a single link and only have a one version of itself.
 ## Note Evolution and Displacement
@@ -128,9 +130,37 @@ When a note must evolve into a different type, a new INDENT ID must be generated
 The following defines where notes are stored or written.
 ### Paper Notebooks
 
-Notes written on a piece of paper are considered as Paper Notes. Generally, it is more recommended writing notes in a notebook to avoid the risk of losing information.
-Paper Notes will have...
+Notes written on a piece of paper are considered as Paper Notes. Generally, it is more recommended writing notes in digital format for the convenience of synchronization across devices, faster idea collection, and faster lookup. However, there are special cases where a paper notebook is necessary, especially in the risk of loss, corruption or destruction of digital data, or when an instruction specifically needs paper notebooks.
+
 Digital notes with paper counterparts or copies must state a callout in the end of the note that any revision in the note warrants a rewrite of the paper copy.
+#### Initialization
+
+A paper notebook must have already been procured and ready for writing. A description string for the purpose of use for the notebook must be ideated first. This string will be the input to a CRC-32 hash algorithm to determine the substring of the ID. Then, the Paper Notebook ID must be created adhering to the following:
+```
+---
+INDENT: DEF
+syntax: "??-${crc32_nb_desc}}"
+root: "NB"
+vars:
+  crc32_nb_desc:
+    desc: "Output of the CRC-32 hash of the description of use for the notebook"
+    format: "string"
+...
+```
+
+The first page of the notebook must contain the following text:
+
+> This paper notebook has been initialized under Personal Management and Productivity System - Knowledge Management and Thought Collection (Permaprost-KMATH). All notes contained or will be written herein must adhere to the methodologies and workflows stated under Permaprost-KMATH.
+> Refer to `${latest_sysdoc_indent}` for more details.
+> 
+> Author: `${name}`
+> Paper Notebook ID: `${indent}`
+> Description: `${desc}`
+
+#### Indexing
+
+INDENT:
+`NP-${nb_index}${pagenumber}#`
 ### Digital Formats
 
 Notes created and stored in any computer are considered notes in Digital Format. All digital notes will have an INDENT root classification of `NO`. Plain-text formats are recommended due to interoperability and simplicity.
@@ -225,7 +255,6 @@ INDENT DEFINITION
 	}
 }
 ```
-
 ## Data and Information Security
 
 
